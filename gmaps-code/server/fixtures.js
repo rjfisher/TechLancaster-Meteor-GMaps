@@ -4,7 +4,7 @@ lngMin = -76.5542851,
 lngMax = -75.0334645;
 
 if (Locations.find({}).count() === 0) {
-  for (var i = 0; i < 1000; i++) {
+  for (var i = 0; i < 100000; i++) {
     var lat = Math.random()*(latMax - latMin) + latMin;
     var lng = Math.random()*(lngMax - lngMin) + lngMin;
 

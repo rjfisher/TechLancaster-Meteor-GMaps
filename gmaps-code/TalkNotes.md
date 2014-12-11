@@ -29,7 +29,7 @@
 * Show helper on how the count is calculated.  `find(); vs `find().fetch();`
 
 ## Step Four: Drawing data naively
-`git pull [Add]`
+`git pull [78ecf852516a54cd31c3d3a31b4d4f6d268a1867]`
 
 * Run `meteor reset`
 * Explain `Deps.autorun`
@@ -41,3 +41,15 @@
 `git pull [Add]`
 
 * Run `meteor reset`
+* Remove autopublish - we don't need it all
+* Let meteor run while talking about other issues
+* Increase the data 100 fold - slow
+* Don't need ALL data just what's on screen
+* Subscribe and publish manually
+* Show how to do a publish in `server\publications\publications.js`
+* Show how to subscribe in `google_maps.js`
+* MUCH, MUCH faster
+* Not REMOVING markers (which is bad)
+
+## Step Six: Making it truly reactive
+`git pull [Add]`

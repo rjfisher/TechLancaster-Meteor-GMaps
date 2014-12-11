@@ -5,6 +5,8 @@ gmaps = {
   markers: [],
   markerData: [],
 
+  locationsHandler: false,
+
   addMarker: function(marker) {
     var gLatLng = new google.maps.LatLng(marker.lat, marker.lng);
     var gMarker = new google.maps.Marker({
@@ -43,6 +45,28 @@ gmaps = {
       document.getElementById('map-canvas'),
       mapOptions
     );
+
+    // Change the data on map refresh
+    google.maps.event.addListener(map, 'idle', function() {
+      var b = map.getBounds();
+      var queryBounds = {
+        a: {x: b.getSouthWest().lng(), y: b.getNorthEast().lat()},
+        b: {x: b.getNorthEast().lng(), y: b.getNorthEast().lat()},
+        c: {x: b.getNorthEast().lng(), y: b.getSouthWest().lat()},
+        d: {x: b.getSouthWest().lng(), y: b.getSouthWest().lat()}
+      };
+
+      var query = {
+        id: null,
+        bounds: queryBounds
+      };
+
+      var newlocationsHandler = Meteor.subscribe('locations', query);
+      if (this.locationsHandler)
+        this.locationsHandler.stop();
+
+      this.locationsHandler = newlocationsHandler;
+    });
 
     // Set up the search box
     var input = document.getElementById('pac-input');
