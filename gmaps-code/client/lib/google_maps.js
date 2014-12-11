@@ -14,6 +14,57 @@ gmaps = {
       mapOptions
     );
 
+    // Set up the search box
+    var input = document.getElementById('pac-input');
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    var searchBox = new google.maps.places.SearchBox(input);
+
+    google.maps.event.addListener(searchBox, 'places_changed', function(){
+      var places = searchBox.getPlaces();
+
+      if (places.length === 0) {
+        toastr.error('Location could not be found');
+        return;
+      }
+
+      if (places.length > 1) {
+        toastr.warning('More than one location was found!');
+      }
+
+      var place = new google.maps.Marker({
+        position: places[0].geometry.location,
+        map: map,
+        draggable: false,
+        animation: google.maps.Animation.DROP,
+        title: places[0].name,
+        icon: '//maps.google.com/mapfiles/ms/icons/green-dot.png'
+      });
+
+      map.setCenter(places[0].geometry.location);
+    });
+
+    // Add geolocation functionality
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var loc = new google.maps.LatLng(position.coords.latitude,
+                                              position.coords.longitude);
+
+        var location = new google.maps.Marker({
+          position: loc,
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: 'Your Location'
+        });
+
+        map.setCenter(loc);
+      }, function() {
+        toastr.error('Geo-Location Error');
+      });
+    } else {
+      toastr.error('Your browser doesn\'t support geolocation');
+    }
+
     this.map = map;
     Session.set('map', true);
   }
