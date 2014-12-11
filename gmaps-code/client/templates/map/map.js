@@ -1,28 +1,22 @@
+var stopMarkers = null;
+
 Template.map.rendered = function() {
   if (!Session.get('map')) {
     gmaps.initialize();
   }
 
-  Deps.autorun(function() {
-    var locations = Locations.find().fetch();
-
-    if (locations) {
-      _.each(locations, function(location) {
-        if(location) {
-          if (!gmaps.markerExists('id', location._id)) {
-            var marker = {
-              id: location._id,
-              lat: location.loc.lat,
-              lng: location.loc.lon,
-              title: location.name
-            };
-
-            gmaps.addMarker(marker);
-          }
+  stopMarkers = LiveMaps.addMarkersToMap(gmaps.map, [{
+      cursor: Locations.find(),
+      onClick: function() {},
+      transform: function(location) {
+        return {
+          title: location.name,
+          position: new google.maps.LatLng(location.loc.lat, location.loc.lon),
+          animation: google.maps.Animation.DROP,
+          icon: '//maps.google.com/mapfiles/ms/icons/blue-dot.png'
         }
-      });
-    }
-  });
+      }
+  }]);
 };
 
 Template.map.helpers({
@@ -30,3 +24,10 @@ Template.map.helpers({
     return Locations.find().count();
   }
 });
+
+Template.map.destroyed = function() {
+  Session.set('map', false);
+
+  if(stopMarkers)
+    stopMarkers();
+}

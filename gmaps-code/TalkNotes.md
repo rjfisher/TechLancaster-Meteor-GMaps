@@ -38,7 +38,7 @@
 * Explain that this isn't truly reactive
 
 ## Step Five: Getting ONLY the data we need
-`git pull [Add]`
+`git pull [4abf68b968f02b93145ebabd53fb452258a92188]`
 
 * Run `meteor reset`
 * Remove autopublish - we don't need it all
@@ -53,3 +53,15 @@
 
 ## Step Six: Making it truly reactive
 `git pull [Add]`
+
+* Talk about the observe pattern for collections
+* Show removed code from `google_maps.js`
+* Show altered code in `map.js`
+* Screaming fast
+* Markers are added/removed quickly in response to subscription
+* Maximizing spatial index from mongodb
+
+## Step Seven: Adding new locations manually
+`git pull [Add]`
+
+* Remove insecure package - we don't want it
