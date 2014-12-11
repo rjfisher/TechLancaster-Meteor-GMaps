@@ -13,8 +13,15 @@
 * Show `client\lib\google_maps.js` for initialization code
 
 # Step Two: Adding more google maps features
-`git pull [add this later]`
+`git pull 4b7dc5a2393478d3c22dcc3ab31777cd88a4e6ef`
 
 * Explain modified `client\lib\google_maps.js` code
 * Discuss the addition of geolocation
 * Discuss the addition of the search box
+
+# Step Three: Bringing in some data
+`git pull [Add]`
+
+* Need to create locations in `lib\collection\locations.js`
+* Can add fixture data for prototyping
+* Take advantage of mongodb spatial features

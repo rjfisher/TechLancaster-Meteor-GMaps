@@ -3,3 +3,9 @@ Template.map.rendered = function() {
     gmaps.initialize();
   }
 };
+
+Template.map.helpers({
+  locationCount: function() {
+    return Locations.find().count();
+  }
+});
