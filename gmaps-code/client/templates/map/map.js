@@ -7,7 +7,9 @@ Template.map.rendered = function() {
 
   stopMarkers = LiveMaps.addMarkersToMap(gmaps.map, [{
       cursor: Locations.find(),
-      onClick: function() {},
+      onClick: function() {
+        Router.go('location', {_id: this.id});
+      },
       transform: function(location) {
         return {
           title: location.name,
@@ -27,6 +29,8 @@ Template.map.helpers({
 
 Template.map.destroyed = function() {
   Session.set('map', false);
+
+  gmaps.stopSubscription();
 
   if(stopMarkers)
     stopMarkers();

@@ -29,7 +29,7 @@
 * Show helper on how the count is calculated.  `find(); vs `find().fetch();`
 
 ## Step Four: Drawing data naively
-`git pull [78ecf852516a54cd31c3d3a31b4d4f6d268a1867]`
+`git pull 78ecf852516a54cd31c3d3a31b4d4f6d268a1867`
 
 * Run `meteor reset`
 * Explain `Deps.autorun`
@@ -38,7 +38,7 @@
 * Explain that this isn't truly reactive
 
 ## Step Five: Getting ONLY the data we need
-`git pull [4abf68b968f02b93145ebabd53fb452258a92188]`
+`git pull 4abf68b968f02b93145ebabd53fb452258a92188`
 
 * Run `meteor reset`
 * Remove autopublish - we don't need it all
@@ -52,7 +52,7 @@
 * Not REMOVING markers (which is bad)
 
 ## Step Six: Making it truly reactive
-`git pull [Add]`
+`git pull 6bf184ba3937789e7c48fd885f7400295fdc5b22`
 
 * Talk about the observe pattern for collections
 * Show removed code from `google_maps.js`
@@ -65,3 +65,16 @@
 `git pull [Add]`
 
 * Remove insecure package - we don't want it
+* Show the locations add stuff quickly (maybe)
+* Show changes to `router.js` for new named routes
+* Discuss the onBeforeAction
+* Show changes to `map.js` for routing on selection
+* Show changes to `publications.js` to id subscription
+* Show changes to `lib\publications\locations.js` to provide permissions to update
+* Show `addLocation.js` to show how to add locations
+
+## Conclusion
+
+* Ask for questions
+* Remind people code is on github
+* Always available for questions
