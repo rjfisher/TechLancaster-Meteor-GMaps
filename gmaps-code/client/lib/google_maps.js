@@ -1,6 +1,36 @@
 gmaps = {
   map: null,
 
+  latLngs: [],
+  markers: [],
+  markerData: [],
+
+  addMarker: function(marker) {
+    var gLatLng = new google.maps.LatLng(marker.lat, marker.lng);
+    var gMarker = new google.maps.Marker({
+      position: gLatLng,
+      map: this.map,
+      title: marker.title,
+      //animation: google.maps.Animation.DROP,
+      icon:'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+    });
+
+    this.latLngs.push(gLatLng);
+    this.markers.push(gMarker);
+    this.markerData.push(marker);
+    return gMarker;
+  },
+
+  markerExists: function(key, val) {
+    _.each(this.markerData, function(marker) {
+      if (marker[key] === val) {
+        return true;
+      }
+    });
+
+    return false;
+  },
+
   initialize: function() {
     var mapOptions = {
       zoom: 18,

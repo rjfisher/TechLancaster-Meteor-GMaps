@@ -4,4 +4,6 @@ Router.configure({
   notFound: 'notFound'
 });
 
-Router.route('/', { name: 'home'});
+Router.route('/', {
+  name: 'home'
+});
