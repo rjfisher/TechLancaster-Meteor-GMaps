@@ -2,7 +2,7 @@
 #### Live Maps with Meteorjs and Google Maps Javascript API
 
 ## Step One: Drawing a map in a route
-`git pull cce687f6184c60320c59b28374819b69e1bb1389`
+`git checkout cce687f6184c60320c59b28374819b69e1bb1389`
 
 * List packages used in project
 * Briefly discuss project folder structure
@@ -13,14 +13,14 @@
 * Show `client\lib\google_maps.js` for initialization code
 
 ## Step Two: Adding more google maps features
-`git pull 4b7dc5a2393478d3c22dcc3ab31777cd88a4e6ef`
+`git checkout 4b7dc5a2393478d3c22dcc3ab31777cd88a4e6ef`
 
 * Explain modified `client\lib\google_maps.js` code
 * Discuss the addition of geolocation
 * Discuss the addition of the search box
 
 ## Step Three: Bringing in some data
-`git pull a38bad537a3660e70154a255ad9da8573d372a40`
+`git checkout a38bad537a3660e70154a255ad9da8573d372a40`
 
 * Need to create locations in `lib\collection\locations.js`
 * Can add fixture data for prototyping
@@ -29,7 +29,7 @@
 * Show helper on how the count is calculated.  `find(); vs `find().fetch();`
 
 ## Step Four: Drawing data naively
-`git pull 78ecf852516a54cd31c3d3a31b4d4f6d268a1867`
+`git checkout 78ecf852516a54cd31c3d3a31b4d4f6d268a1867`
 
 * Run `meteor reset`
 * Explain `Deps.autorun`
@@ -38,7 +38,7 @@
 * Explain that this isn't truly reactive
 
 ## Step Five: Getting ONLY the data we need
-`git pull 4abf68b968f02b93145ebabd53fb452258a92188`
+`git checkout 4abf68b968f02b93145ebabd53fb452258a92188`
 
 * Run `meteor reset`
 * Remove autopublish - we don't need it all
@@ -52,7 +52,7 @@
 * Not REMOVING markers (which is bad)
 
 ## Step Six: Making it truly reactive
-`git pull 6bf184ba3937789e7c48fd885f7400295fdc5b22`
+`git checkout 6bf184ba3937789e7c48fd885f7400295fdc5b22`
 
 * Talk about the observe pattern for collections
 * Show removed code from `google_maps.js`
@@ -62,7 +62,7 @@
 * Maximizing spatial index from mongodb
 
 ## Step Seven: Adding new locations manually
-`git pull [Add]`
+`git checkout [Add]`
 
 * Remove insecure package - we don't want it
 * Show the locations add stuff quickly (maybe)
