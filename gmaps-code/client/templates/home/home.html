@@ -1,0 +1,22 @@
+<template name="home">
+  <div class="map row">
+    <div class="col-md-12">
+      <form>
+        <div class="row">
+          <div class="col-sm-11">
+          </div>
+          <div class="col-sm-1">
+            <div class="form-group">
+              {{#if currentUser}}
+              <a class="btn btn-primary" href="{{pathFor 'addLocation'}}">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </form>
+      {{> map}}
+    </div>
+  </div>
+</template>
